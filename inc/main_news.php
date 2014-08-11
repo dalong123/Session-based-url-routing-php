@@ -1,0 +1,1 @@
+<?php echo "This is the included news php"; ?>
