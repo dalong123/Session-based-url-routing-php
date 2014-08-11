@@ -1,6 +1,6 @@
 <head>	
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-	<title>Simple redidect by session data</title>
+	<title>Simple redirect by session data</title>
 </head>
 <html>	
 <body>

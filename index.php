@@ -20,8 +20,8 @@
             $included = "welcome";  //if not get, set  module name to default
     } ?>
 
-<a href="#" onClick="set_module('welcome', '', '')">Home</a>
-<a href="#" onClick="set_module('news', '', '')">News</a>
+<a href="#" onClick="set_module('welcome', 'edit', '8')">Home</a>
+<a href="#" onClick="set_module('news', 'delete', '11')">News</a>
 <a href="#" onClick="set_module('about_us', '', '')">About us</a>
 
 <br><br>
@@ -29,7 +29,7 @@
     <?php  include( "inc/main_".$included.".php");  ?>
     <?php 
         echo "<pre>";
-         print_r($_SESSION);
+         print_r($_SESSION['url']);
          echo "</pre>"; 
     ?>
  </body>
