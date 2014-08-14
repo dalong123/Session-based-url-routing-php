@@ -4,6 +4,7 @@
 </head>
 <html>	
 <body>
+This page is never seen!!
 		<?php 
 		
 		session_start();

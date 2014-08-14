@@ -54,31 +54,42 @@
             }
         
         ?>
+        <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 </head>
  <body>
+ <div class="row">
+  <div class="col-md-2"></div>
+ <div class="col-md-8"> 
  Module based links :  
-<a href="#" onClick="set_module('welcome', 'edit', '8')">Home</a>
-<a href="#" onClick="set_module('news', 'delete', '11')">News</a>
-<a href="#" onClick="set_module('about_us', '', '')">About us</a>
+<a href="#" onClick="set_module('welcome', 'edit', '8')" class="btn btn-info">Home</a>
+<a href="#" onClick="set_module('news', 'delete', '11')" class="btn btn-info">News</a>
+<a href="#" onClick="set_module('about_us', '', '')" class="btn btn-info">About us</a>
 <br><br>
 Class based link:   
-<a href="#" onClick="set_class('test', 'hello', '8')">Say hello</a>
+<a href="#" onClick="set_class('test', 'hello', '8')" class="btn btn-success">Say hello</a>
 <br><br>
     <?php  
                  if ( $moduled == true   ) {
 
-                //session_start();
-                    include( "inc/main_".$included.".php");  
+                    
+                            include( "inc/main_".$included.".php");  
+
                     }  elseif ( $classed == true   ) { 
-                       $class_-> ${!${''} = $func_name }(${!${''} = $var_name });
+
+                            $class_-> ${!${''} = $func_name }(${!${''} = $var_name });
                                 //echo $class_name."_job->".$var_name."()";
                     } 
     ?>
+    <br>  <br>  
+    <p> Let's see what contains the <code> $_SESSION  </code> variable:</p>
     <?php 
         echo "<pre>";
          print_r($_SESSION);
          echo "</pre>"; 
     ?>
+     </div>
+     <div class="col-md-2"> </div>
+     </div>
  </body>
  </html>
  <script src="http://code.jquery.com/jquery-2.1.1.js"></script>
