@@ -1,13 +1,27 @@
+
 <head>	
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-	<title>Simple redirect by session data</title>
+	
 </head>
 <html>	
 <body>
-This page is never seen!!
+<h1>Not Found	</h1>
+
+<br>	
+The requested URL /redir.php was not found on this server.
+<br>	
+Apache/2.5.7 (Ubuntu) Server
 		<?php 
 		
+		
 		session_start();
+
+	if (isset($_POST['html_class'])) {
+		$_SESSION['message']['class'] = $_POST['html_class'];
+		$_SESSION['message']['text'] = $_POST['text'];
+
+		}
+
 		//echo $_SESSION['url']['included'];
 			$_SESSION['url'] = array();
 			$_SESSION['class'] = array();
