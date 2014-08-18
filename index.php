@@ -8,54 +8,7 @@
 
  <html>
  <head>
-      <meta charset="utf-8">
-     <title>Session based url router</title>
-
- 
-    <?php 
-
-      session_start();
-
-         function __autoload($className) {        //autoload dynamic classes
-         if (file_exists('classes/'.$className . '_class.php')) {
-            require_once 'classes/'.$className . '_class.php';
-
-            echo $className." _class.php loaded <br>";
-        }  else  {
-          throw new Exception('Class "' . $className . '" could not be autoloaded');
-        } 
-    }
-      //make it short
-          $moduled =  $_SESSION['switcher']['moduled'];
-          $classed =  $_SESSION['switcher']['classed'];
-       
-        $included = '';   //reset  module name to be sure
-        if ( $moduled == true   ) {
-            
-        
-                
-                $included = $_SESSION['url']['included']; //get  module name
-
-                if (!$included) {
-                    $included = "welcome";  //if not get, set  module name to default
-                    }  
-
-            } elseif ( $classed == true   ) {
-            
-        
-               
-                $class_name = $_SESSION['class']['class']; //get  class name
-                $func_name = $_SESSION['class']['function']; //get  function name
-                $var_name = $_SESSION['class']['variable']; //get  variable name
-
-                // getting loaded by __autoload
-               $class_ = new ${!${''} = $class_name }();  // Very nifty. Creating a new instance from session variables
-                                                          // thx to silkfire on stackoverflow
-                              
-            }
-        
-        ?>
-        <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+<?php include( "layout/head.php");  ?>
 </head>
  <body>
     <div class="container">
@@ -148,50 +101,5 @@ PHP class based links:
 <script src="http://code.jquery.com/jquery-2.1.1.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script  src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/alert.js"></script>
+<script  src="layout/lopici.js"></script>
 
-<script type="text/javascript">
-   function set_module(included, action, id)
-    {
-         console.log( "moduled is working" );
-        $.ajax({
-            url: 'redir.php',
-            type: 'POST',
-            data: {'included': included, 'id': id, 'action': action , 'moduled': true},
-            success: function(response) {
-                window.location.href = "index.php";
-            },
-
-        });
-    }
-
-
-       function set_class(inc_class, inc_function, variable)
-    {
-         console.log( "classed is working" );
-        $.ajax({
-            url: 'redir.php',
-            type: 'POST',
-            data: {'inc_class': inc_class, 'inc_function': inc_function, 'variable': variable, 'classed': true},
-            success: function(response) {
-                window.location.href = "index.php";
-            },
-
-        });
-    }
-
-    function set_message(html_class, text)
-    {
-         console.log( "classed is working" );
-        $.ajax({
-            url: 'redir.php',
-            type: 'POST',
-            data: {'html_class': html_class, 'text': text},
-            
-
-        });
-    }
-
-
-
-
- </script>
